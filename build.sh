@@ -1,18 +1,18 @@
-export CLANG_PATH=/home/sajad/toolchains/clang-r510928
-export PATH=${CLANG_PATH}/bin:${PATH}
+export Directory="/home/Paradox_Phoenix_Redmi_K30_Kernel"
+export PATH="${Directory}/toolchains/clang-r510928/bin:${Directory}/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-linux-gnu/bin:${Directory}/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin:$PATH"
 
 export ARCH=arm64
-export KBUILD_BUILD_USER=ventur
-export KBUILD_BUILD_HOST=Sajad-PC
+export KBUILD_BUILD_USER=root
+export KBUILD_BUILD_HOST=Kali
 
 # Clean the build directory
-make clean O=out ARCH=arm64
+make clean
 
 # Remove any configuration or generated files 
-make mrproper O=out ARCH=arm64
+make mrproper
 
 # Load the configuration file
-make phoenix_defconfig O=out ARCH=arm64
+make O=out ARCH=arm64 phoenix_defconfig
 
 # Build the kernel
 make -j$(nproc --all) \
@@ -21,6 +21,7 @@ make -j$(nproc --all) \
     LLVM_IAS=1 \
     CC="ccache clang" \
     LD=ld.lld \
-    CROSS_COMPILE="/home/sajad/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-" \
-    CROSS_COMPILE_ARM32="/home/sajad/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-"
+    CROSS_COMPILE=aarch64-none-linux-gnu- \
+    CROSS_COMPILE_ARM32=arm-none-linux-gnueabihf- \
+    CLANG_TRIPLE=aarch64-linux-gnu-
 
