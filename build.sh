@@ -1,4 +1,4 @@
-export Directory="/home/Paradox_Phoenix_Redmi_K30_Kernel"
+export Directory="/home/kali/Desktop/Paradox_Phoenix_Redmi_K30_Kernel"
 export PATH="${Directory}/toolchains/clang-r510928/bin:${Directory}/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-linux-gnu/bin:${Directory}/toolchains/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin:$PATH"
 
 export ARCH=arm64
